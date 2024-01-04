@@ -6,6 +6,7 @@ import javax.servlet.ServletRegistration.Dynamic;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+///또는 WebApplicationInitializer 상속
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
