@@ -20,6 +20,6 @@ public class BoardVO {
 	private String regAt;
 	private String modAt;
 	private int readCount;
-	private int cmyQty;
+	private int cmtQty;
 	private int hasFile;
 }
