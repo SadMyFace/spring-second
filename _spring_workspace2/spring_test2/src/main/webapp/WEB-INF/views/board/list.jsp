@@ -38,6 +38,59 @@
 	    </c:forEach>
 	  </tbody>
 	</table>
+	
+	<!-- 페이징 라인 -->
+	<nav aria-label="Page navigation example">
+	  <ul class="pagination">
+		<c:if test="${ph.prev }">
+		    <li class="page-item ${(ph.prev eq false) ? 'disabled' : '' }">
+		      <a class="page-link" href="/board/list?pageNo=${ph.startPage - 1 }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>		
+		</c:if>
+	    
+	    <c:forEach begin="${ph.startPage }" end="${ph.endPage }" var="i">
+	    	<li class="page-item"><a class="page-link" href="/board/list?pageNo=${i }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}">${i }</a></li>
+	    </c:forEach>
+	    
+	    <c:if test="${ph.next }">
+		    <li class="page-item ${(ph.next eq false) ? 'disabled' : '' }">
+		      <a class="page-link" href="/board/list?pageNo=${ph.endPage + 1 }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>	    
+	    </c:if>
+	  </ul>
+	</nav>
+	
+	<!-- search line -->
+	<div class="col-sm-12 col-md-6">
+		<form action="#" method="get">
+			<div class="input-group mb-3">
+				<c:set value="${ph.pgvo.type }" var="typed"></c:set>
+				<select class="form-select" name="type" id="input">
+					<option ${typed == null ? 'selected' : ''}>Choose...</option>
+					<option value="t" ${typed == 't' ? 'selected' : ''}>Title</option>
+					<option value="w" ${typed == 'w' ? 'selected' : ''}>Writer</option>
+					<option value="c" ${typed == 'c' ? 'selected' : ''}>Content</option>
+					<option value="tw" ${typed == 'tw' ? 'selected' : ''}>Title & Writer</option>
+					<option value="tc" ${typed == 'tc' ? 'selected' : ''}>Title & Content</option>
+					<option value="wc" ${typed == 'wc' ? 'selected' : ''}>Writer & Content</option>
+					<option value="twc" ${typed == 'twc' ? 'selected' : ''}>All</option>
+				</select>
+				<input type="hidden" name="pageNo" value="1">
+				<input type="hidden" name="qty" value="${ph.pgvo.qty }">
+				<input class="form-control me-2" name="keyword" type="search" placeholder="Search" aria-label="Search" value="${ph.pgvo.keyword }">
+				<button class="btn btn-outline-success" type="submit">Search
+					<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+				    	${ph.totalCount }
+				    	<span class="visually-hidden">unread messages</span>
+  					</span>
+				</button>
+			</div>
+		</form>
+</div>
 </div>
 
 <script type="text/javascript">

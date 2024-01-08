@@ -48,10 +48,43 @@
 		</tr>
 	</table>
 	
-	<a href="/board/list"><button type="button" class="btn btn-primary">리스트로 이동</button></a>
-	<a href="/board/modify?bno=${bvo.bno }"><button type="button" class="btn btn-success">수정</button></a>
-	<a href="/board/remove?bno=${bvo.bno }"><button type="button" class="btn btn-danger">삭제</button></a>
+	<a href="/board/list"><button type="button" class="btn btn-outline-primary">리스트로 이동</button></a>
+	<a href="/board/modify?bno=${bvo.bno }"><button type="button" class="btn btn-outline-success">수정</button></a>
+	<a href="/board/remove?bno=${bvo.bno }"><button type="button" class="btn btn-outline-danger">삭제</button></a>
+	
+	<br>
+	<hr>
+	
+	<!-- 댓글 등록 라인 -->
+	<div class="input-group mb-3">
+	  <span class="input-group-text" id="cmtWriter">${bvo.writer }</span>
+	  <input type="text" class="form-control" id="cmtText" aria-label="Amount (to the nearest dollar)">
+	  <button type="button" class="btn btn-outline-success" id="cmtPostBtn">Post</button>
+	</div>
+	<!-- 댓글 표시 라인 -->
+	<ul class="list-group">
+	  <li class="list-group-item" id="cmtListArea"> 
+	  	<div class="mb-3">
+	  		<div class="fw-bold">Writer</div>
+	  		content
+	  	</div>
+	  	<span class="badge text-bg-warning">modAt</span>
+	  </li>
+	</ul>
+	
+	<!-- 댓글 더보기 버튼 -->
+	<div>
+		<button type="button" class="btn btn-outline-dark" id="moreBtn" data-page="1" style="visibility:hidden">MORE+</button>
+	</div>
 </div>
 
+<script type="text/javascript">
+	let bnoVal = `<c:out value="${bvo.bno}" />`;
+	console.log(bnoVal);
+</script>
 
+<script src="/resources/js/boardComment.js"></script>
+<script type="text/javascript">
+	spreadCommentList(bnoVal);
+</script>
 <jsp:include page="../layout/footer.jsp"></jsp:include> 
