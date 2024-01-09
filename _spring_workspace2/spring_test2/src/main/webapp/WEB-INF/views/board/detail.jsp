@@ -76,6 +76,28 @@
 	<div>
 		<button type="button" class="btn btn-outline-dark" id="moreBtn" data-page="1" style="visibility:hidden">MORE+</button>
 	</div>
+	
+	<!-- 모달창 라인 -->
+	<div class="modal" id="myModal" tabindex="-1">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Writer</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <div class="input-group mb-3">
+	        	<input type="text" class="form-control" id="cmtTextMod">
+		        <button type="button" class="btn btn-primary" id="cmtModBtn">Post</button>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
 </div>
 
 <script type="text/javascript">

@@ -12,6 +12,10 @@ public interface CommentDAO {
 
 	int postComment(CommentVO cvo);
 
-	List<PagingHandler> getList(@Param("bno") long bno, @Param("pgvo") PagingVO pgvo);
+	List<CommentVO> getList(@Param("bno") long bno, @Param("pgvo") PagingVO pgvo);
+
+	int selectOneBnoTotalCount(long bno);
+
+	int editComment(CommentVO cvo);
 
 }
