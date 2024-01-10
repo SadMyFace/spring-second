@@ -128,6 +128,21 @@ document.addEventListener('click', (e)=>{
             //수정된 댓글 뿌리기 page = 1
             spreadCommentList(bnoVal);
         })
+    }else if(e.target.classList.contains('del')){
+        let li = e.target.closest('li');
+        let cnoVal = li.dataset.cno;
+        console.log(cnoVal);
+
+        //비동기 보내기
+        deleteCommentToServer(cnoVal).then(result => {
+            if(result == "1"){
+                alert("댓글 삭제 성공");
+            }else{
+                alert("댓글 삭제 실패");
+            }
+            spreadCommentList(bnoVal);
+        })
+
     }
 });
 
@@ -140,6 +155,20 @@ async function editCommentToServer(cmtDataMod){
                 'content-type':'application/json; charset=utf-8'
             },
             body: JSON.stringify(cmtDataMod)
+        };
+        const resp = await fetch(url, config);
+        const result = await resp.text();
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function deleteCommentToServer(cnoVal){
+    try {
+        const url = '/comment/delete/'+cnoVal;
+        const config = {
+            method: 'delete'
         };
         const resp = await fetch(url, config);
         const result = await resp.text();

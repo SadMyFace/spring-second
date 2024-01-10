@@ -43,4 +43,10 @@ public class CommentServiceImpl implements CommentService{
 		
 		return cdao.editComment(cvo);
 	}
+
+	@Override
+	public int deleteComment(long cno) {
+		
+		return cdao.deleteComment(cno);
+	}
 }
