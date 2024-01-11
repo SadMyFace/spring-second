@@ -49,25 +49,55 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> getList(PagingVO pgvo) {
 		
+		int isOk  = bdao.updateCommentCount();
+		
+		if(isOk == 0) {
+			log.info("getCommentCount error!!");
+			return null;
+		}
+		
+		isOk = bdao.updateFileCount();
+		
+		if(isOk == 0) {
+			log.info("getFileCount error!!");
+			return null;
+		}
+		
 		return bdao.getList(pgvo);
 	}
 
 	@Override
-	public int updateReadCount(int bno) {
+	public int updateReadCount(long bno) {
 		
 		return bdao.updateReadCount(bno);
 	}
-
+	
+	@Transactional
 	@Override
-	public BoardVO getDetail(int bno) {
+	public BoardDTO getDetail(long bno) {
 		
-		return bdao.getDetail(bno);
+		BoardVO bvo = bdao.getDetail(bno);
+		List<FileVO> flist = fdao.getFileList(bno);
+		BoardDTO bdto = new BoardDTO(bvo, flist);
+		return bdto;
 	}
-
+	
 	@Override
-	public int modify(BoardVO bvo) {
+	public int modify(BoardDTO bdto) {
 		
-		return bdao.modify(bvo);
+		int isOk = bdao.modify(bdto.getBvo());
+		
+		if(bdto.getFlist() == null) {
+			return isOk;
+		}
+		
+		if(isOk > 0 && bdto.getFlist().size() > 0) {
+			for(FileVO fvo : bdto.getFlist()) {
+				fvo.setBno(bdto.getBvo().getBno());
+				isOk *= fdao.insertFile(fvo);
+			}
+		}
+		return isOk;
 	}
 
 	@Override
@@ -79,5 +109,10 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int getTotalCount(PagingVO pgvo) {
 		return bdao.getTotalCount(pgvo);
+	}
+
+	@Override
+	public int deleteImgae(String uuid) {
+		return fdao.deleteImage(uuid);
 	}
 }

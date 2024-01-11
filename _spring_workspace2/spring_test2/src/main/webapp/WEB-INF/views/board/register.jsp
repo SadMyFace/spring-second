@@ -18,7 +18,7 @@
 	  <textarea name="content" class="form-control" id="content" rows="3"></textarea>
 	</div>
 	
-	file 입력 라인 추가
+	<!-- file 입력 라인 추가 -->
 	<div class="mb-3">
 	  <label for="file" class="form-label">fileUpload</label>                       
 	  <input type="file" name="files" class="form-control" id="files" multiple="multiple" style="display:none">

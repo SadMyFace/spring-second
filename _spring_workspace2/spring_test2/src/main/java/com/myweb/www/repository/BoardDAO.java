@@ -11,9 +11,9 @@ public interface BoardDAO {
 
 	List<BoardVO> getList(PagingVO pgvo);
 
-	int updateReadCount(int bno);
+	int updateReadCount(long bno);
 
-	BoardVO getDetail(int bno);
+	BoardVO getDetail(long bno);
 
 	int modify(BoardVO bvo);
 
@@ -22,5 +22,9 @@ public interface BoardDAO {
 	int getTotalCount(PagingVO pgvo);
 
 	long selectOneBno();
+
+	int updateCommentCount();
+
+	int updateFileCount();
 
 }

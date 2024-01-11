@@ -2,9 +2,14 @@ package com.myweb.www.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +45,7 @@ public class BoardController {
 	
 	@PostMapping("/register")
 	public String register(BoardVO bvo, @RequestParam(name = "files", required = false)MultipartFile[] files ) {
-		log.info(">>> bvo >>> {}", bvo);
+		log.info(">>> bvo >>> {}" + bvo);
 		
 		List<FileVO> flist = null;
 		
@@ -69,21 +74,28 @@ public class BoardController {
 	}
 	
 	@GetMapping({"/detail", "/modify"})
-	public void detail(Model m, @RequestParam("bno") int bno) {
+	public void detail(Model m, @RequestParam("bno") long bno) { 
 		log.info(">>> bno >>> " + bno);
 		
 		int isOk = bsv.updateReadCount(bno);
 		
 		log.info(">>> readCount Update >>>" + ((isOk > 0) ? "OK" : "Fail"));
 		
-		m.addAttribute("BoardVO", bsv.getDetail(bno));
+		m.addAttribute("bdto", bsv.getDetail(bno));
 	}
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO bvo) {
+	public String modify(BoardVO bvo, @RequestParam(name = "files", required = false)MultipartFile[] files ) {
 		log.info(">>> bvo >>> {}", bvo);
 		
-		int isOk = bsv.modify(bvo);
+		List<FileVO> flist = null;
+		
+		//fileHandler 생성 multipartfile -> flist
+		if(files[0].getSize() > 0) {
+			flist = fh.uploadFiles(files);
+		}
+		
+		int isOk = bsv.modify(new BoardDTO(bvo, flist));
 		
 		return "redirect:/board/detail?bno="+bvo.getBno();
 	}
@@ -99,5 +111,19 @@ public class BoardController {
 		re.addFlashAttribute("isDel", isOk);
 		
 		return "redirect:/board/list";
+	}
+	
+	@DeleteMapping(value = "/deleteImage/{uuid}", produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> deleteImage(@PathVariable("uuid") String uuid) {
+		log.info(">>> uuid >>> " + uuid);
+		
+		int isOk = bsv.deleteImgae(uuid);
+		
+		log.info(">>> image delete >>> " + ((isOk > 0) ? "OK" : "Fail"));
+		
+		return isOk > 0 ? 
+				new ResponseEntity<String>("1", HttpStatus.OK) : 
+					new ResponseEntity<String>("0", HttpStatus.INTERNAL_SERVER_ERROR);
+		
 	}
 }
