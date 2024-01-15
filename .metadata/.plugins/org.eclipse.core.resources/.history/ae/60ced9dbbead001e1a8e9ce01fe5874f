@@ -1,0 +1,7 @@
+package com.myweb.www.handler;
+
+public class PagingHandler {
+	
+	private int startPage;
+	private int endPage;
+}
