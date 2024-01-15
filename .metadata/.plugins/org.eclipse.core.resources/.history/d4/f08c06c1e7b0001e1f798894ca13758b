@@ -1,0 +1,28 @@
+package com.myweb.www.handler;
+
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.myweb.www.repository.FileDAO;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RequiredArgsConstructor
+@Component
+@EnableScheduling
+public class FileSweeper {
+	
+	private final String BASE_PATH = "D:\\_myProject\\_java\\_fileUpload";
+	
+	private final FileDAO fdao;
+	
+	//초 분 시 일 월 요일 년도(년도는 생략 가능)
+	//크론 표현식 사용
+	@Scheduled(cron="0 59 11 * * *")
+	public void fileSeeper() {
+		
+	}
+}

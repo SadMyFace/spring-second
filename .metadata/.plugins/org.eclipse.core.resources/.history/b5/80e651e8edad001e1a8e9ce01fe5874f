@@ -1,0 +1,14 @@
+package com.myweb.www.service;
+
+import java.util.List;
+
+import com.myweb.www.domain.CommentVO;
+import com.myweb.www.domain.PagingVO;
+
+public interface CommentService {
+
+	int postComment(CommentVO cvo);
+
+	List<PagingHandler> getList(long bno, PagingVO pgvo);
+
+}

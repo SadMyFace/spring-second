@@ -1,0 +1,16 @@
+package com.myweb.www.repository;
+
+import java.util.List;
+
+import com.myweb.www.security.AuthVO;
+import com.myweb.www.security.MemberVO;
+
+public interface MemberDAO {
+
+	int memberRegister(MemberVO mvo);
+
+	MemberVO findUser(String email);
+
+	int insertAuthInit(List<AuthVO> authList);
+
+}

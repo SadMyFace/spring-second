@@ -1,0 +1,58 @@
+
+1월 04, 2024 15:08:50.759 NEW SESSION
+1월 04, 2024 15:08:50.759 [13180:6976:0104/150850.758:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+1월 04, 2024 15:08:51.740 [13180:6976:0104/150851.739:ERROR:device_event_log_impl.cc(192)] [15:08:51.740] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+
+1월 05, 2024 09:44:08.727 NEW SESSION
+1월 05, 2024 09:44:08.727 [7108:7016:0105/094408.725:ERROR:device_event_log_impl.cc(192)] [09:44:08.725] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+1월 05, 2024 10:05:50.661 [7108:7016:0105/100550.661:ERROR:device_event_log_impl.cc(192)] [10:05:50.661] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+1월 05, 2024 10:05:50.672 [7108:7016:0105/100550.671:ERROR:device_event_log_impl.cc(192)] [10:05:50.671] USB: usb_service_win.cc:307 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+1월 05, 2024 11:12:31.444 [7108:7016:0105/111231.444:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+1월 05, 2024 13:51:10.119 [7108:7016:0105/135110.119:ERROR:interface_endpoint_client.cc(702)] Message 1 rejected by interface blink.mojom.WidgetHost
+1월 05, 2024 13:51:48.912 [7108:7016:0105/135148.911:ERROR:device_event_log_impl.cc(192)] [13:51:48.912] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+1월 05, 2024 13:55:30.708 [7108:7016:0105/135530.708:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+1월 05, 2024 13:55:31.615 [7108:7016:0105/135531.615:ERROR:device_event_log_impl.cc(192)] [13:55:31.615] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+
+1월 09, 2024 09:33:26.426 NEW SESSION
+1월 09, 2024 09:33:26.426 [2160:10152:0109/093326.425:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 09:33:50.530 [2160:10152:0109/093350.530:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 09:43:32.562 [2160:10152:0109/094332.562:ERROR:device_event_log_impl.cc(192)] [09:43:32.561] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+1월 09, 2024 10:02:54.164 [2160:10152:0109/100254.164:ERROR:device_event_log_impl.cc(192)] [10:02:54.164] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+1월 09, 2024 10:02:54.175 [2160:10152:0109/100254.175:ERROR:device_event_log_impl.cc(192)] [10:02:54.175] USB: usb_service_win.cc:307 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+1월 09, 2024 11:32:28.938 [2160:10152:0109/113228.938:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 12:52:29.636 [2160:10152:0109/125229.636:ERROR:device_event_log_impl.cc(192)] [12:52:29.636] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+1월 09, 2024 13:05:12.767 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+1월 09, 2024 13:05:12.767 WARNING: Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#56 is a dynamic-sized tensor).
+1월 09, 2024 13:31:34.877 [2160:10152:0109/133134.876:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 13:32:47.101 [2160:10152:0109/133247.101:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 13:33:01.166 [2160:10152:0109/133301.166:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+1월 09, 2024 13:33:18.404 [2160:10152:0109/133318.404:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 13:33:21.539 [2160:10152:0109/133321.539:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 13:33:34.471 [2160:10152:0109/133334.471:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 13:34:30.664 [2160:11760:0109/133430.664:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:32.683 [2160:11760:0109/133432.682:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:34.708 [2160:11760:0109/133434.708:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:36.725 [2160:11760:0109/133436.724:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:38.738 [2160:11760:0109/133438.738:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:40.750 [2160:11760:0109/133440.750:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:42.775 [2160:11760:0109/133442.775:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:34:44.786 [2160:11760:0109/133444.786:ERROR:leveldb_factory.cc(88)] Failed to open LevelDB database from C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb,IO error: C:\Users\EZENIC-169\AppData\Local\Google\Chrome\User Data\Profile 5\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+1월 09, 2024 13:38:34.407 [2160:10152:0109/133834.407:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 13:38:39.186 [2160:10152:0109/133839.185:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 14:08:40.440 [2160:10152:0109/140840.440:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 14:08:44.887 [2160:10152:0109/140844.887:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 14:09:14.866 [2160:10152:0109/140914.866:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 09, 2024 14:13:48.402 [2160:10152:0109/141348.401:ERROR:device_event_log_impl.cc(192)] [14:13:48.402] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+
+1월 10, 2024 11:14:36.36 NEW SESSION
+1월 10, 2024 11:14:36.36 [5960:3612:0110/111436.034:ERROR:device_event_log_impl.cc(192)] [11:14:36.035] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+1월 10, 2024 13:22:12.310 [5960:3612:0110/132212.310:ERROR:CONSOLE(0)] "ReferenceError: dragEvent is not defined", source:  (0)
+1월 10, 2024 13:56:39.132 [5960:3612:0110/135639.132:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+
+1월 12, 2024 09:34:46.635 NEW SESSION
+1월 12, 2024 09:34:46.635 [5356:2064:0112/093446.632:ERROR:interface_endpoint_client.cc(702)] Message 5 rejected by interface blink.mojom.WidgetHost
+1월 12, 2024 10:29:17.386 [5356:2064:0112/102917.386:ERROR:device_event_log_impl.cc(192)] [10:29:17.386] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+
+1월 15, 2024 09:45:16.845 NEW SESSION
+1월 15, 2024 09:45:16.845 [11572:8456:0115/094516.843:ERROR:device_event_log_impl.cc(192)] [09:45:16.844] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+1월 15, 2024 13:55:28.774 [11572:8456:0115/135528.773:ERROR:CONSOLE(1)] "Request Network.loadNetworkResource failed. {"code":-32602,"message":"Unsupported URL scheme"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
