@@ -1,5 +1,7 @@
 package com.myweb.www.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -51,5 +53,48 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean updateLastLogin(String authEmail) {
 		return mdao.updateLastLogin(authEmail) > 0 ? true : false;
+	}
+
+	@Override
+	public MemberVO detail(String email) {
+		// TODO Auto-generated method stub
+		MemberVO mvo =  mdao.selectEmail(email);
+		mvo.setAuthList(mdao.selectAuths(email));
+		
+		return mvo;
+	}
+
+	@Override
+	public int updateMember(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mdao.updateMember(mvo);
+	}
+
+	@Override
+	public String findPassword(String email) {
+		// TODO Auto-generated method stub
+		return mdao.findPassword(email);
+	}
+	
+	@Transactional
+	@Override
+	public List<MemberVO> getMemberList() {
+		// TODO Auto-generated method stub
+		List<MemberVO> list = mdao.getMemberList();
+		for(MemberVO mvo : list) {
+			mvo.setAuthList(mdao.selectAuths(mvo.getEmail()));
+		}
+		return list;
+	}
+	
+	@Transactional
+	@Override
+	public int deleteMember(String email) {
+		// TODO Auto-generated method stub
+		int isOk = mdao.deleteAuthMember(email);
+		
+		log.info(">>> delete Auth Member >>>" + ((isOk > 0) ? "OK" : "Fail"));
+		
+		return mdao.deleteMember(email);
 	}
 }

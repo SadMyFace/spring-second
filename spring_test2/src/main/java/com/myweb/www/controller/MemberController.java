@@ -1,12 +1,21 @@
 package com.myweb.www.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myweb.www.security.MemberVO;
@@ -55,7 +64,65 @@ public class MemberController {
 		
 		return "redirect:/member/login";
 	}
+	//@RequestParam("email")String email : 쿼리스트링 (파라미터 받기)
+	@GetMapping("/modify")
+	public void modify(Principal p, Model m) {
+		log.info(">>> principal >> email > " + p.getName());
+		String email = p.getName();
+		m.addAttribute("mvo", msv.detail(email));
+	}
+	
+	@PostMapping("/modify")
+	public String modify(MemberVO mvo, HttpServletRequest req, HttpServletResponse res) {
+		
+		log.info(">>> mvo >>> {} ", mvo);
+		if(mvo.getPwd() == null || mvo.getPwd().length() == 0) {
+			//비번 없는 업데이트 진행
+			mvo.setPwd(msv.findPassword(mvo.getEmail()));
+		}else {
+			//비번을 다시 인코딩하여 업데이트 진행
+			mvo.setPwd(bcEncoder.encode(mvo.getPwd()));			
+		}
+		int isOk = msv.updateMember(mvo);
+		
+		//로그아웃 진행
+		//현재 로그인된 상태 = authentication
+		logout(req, res);
+		
+		return "member/login";
+	}
+	
+	@GetMapping("/list")
+	public void memberList(Model m) {
+		
+		List<MemberVO> memberList = msv.getMemberList();
+		
+		m.addAttribute("list", memberList);
+		
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("email") String email, HttpServletRequest req, HttpServletResponse res) {
+		
+		log.info(">>> email >>>" + email);
+		
+		int isOk = msv.deleteMember(email);
+		
+		log.info(">>> delete Member >>>" + ((isOk > 0) ? "OK" : "Fail"));
+		
+		logout(req, res);
+		
+		return "index";
+	}
 	
 	
-	
+	//로그아웃 진행
+	//현재 로그인된 상태 = authentication
+	private void logout(HttpServletRequest request, HttpServletResponse response) {
+		
+		Authentication authentication = SecurityContextHolder
+				.getContext().getAuthentication();
+		new SecurityContextLogoutHandler().logout(request, response, authentication);
+		
+	}
 }

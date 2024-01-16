@@ -56,3 +56,6 @@
 1월 15, 2024 09:45:16.845 NEW SESSION
 1월 15, 2024 09:45:16.845 [11572:8456:0115/094516.843:ERROR:device_event_log_impl.cc(192)] [09:45:16.844] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
 1월 15, 2024 13:55:28.774 [11572:8456:0115/135528.773:ERROR:CONSOLE(1)] "Request Network.loadNetworkResource failed. {"code":-32602,"message":"Unsupported URL scheme"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+
+1월 16, 2024 09:34:55.946 NEW SESSION
+1월 16, 2024 09:34:55.946 [10680:13424:0116/093455.934:ERROR:device_event_log_impl.cc(192)] [09:34:55.935] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.

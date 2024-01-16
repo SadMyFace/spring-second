@@ -19,4 +19,15 @@ public interface MemberDAO {
 
 	int updateLastLogin(String authEmail);
 
+	int updateMember(MemberVO mvo);
+
+	String findPassword(String email);
+
+	List<MemberVO> getMemberList();
+
+	int deleteMember(String email);
+
+	int deleteAuthMember(String email);
+	
+
 }

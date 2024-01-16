@@ -62,3 +62,18 @@ auth varchar(50) not null);
 
 alter table auth_member add constraint fk_auth 
 foreign key(email) references member(email);
+
+
+-- 회원 삭제시 --
+alter table auth_member drop foreign key fk_auth;
+
+alter table auth_member add constraint fk_auth 
+foreign key(email) references member(email) ON DELETE CASCADE;
+를 하면 연쇄 삭제
+-------------
+
+
+
+
+
+
